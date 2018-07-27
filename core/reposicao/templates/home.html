@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block repo %}
+
+    <div class="corpo ">
+        <form  method="get" action="reposicao">
+          {{ form }}
+          <button data-toggle="modal" class="botao btn btn-primary btn-lg" type="submit">Reposição de Aula</button>
+        </form>
+
+        <form method="get" action="historico">
+          {{ form }}
+          <button data-toggle="modal" class=" botao btn btn-primary btn-lg" type="submit">Historico</button>
+        </form>
+
+        <form method="get" action="adiantamento">
+          {{ form }}
+          <button data-toggle="modal" class="botao btn btn-primary btn-lg" type="submit">Adiantamento de aula</button>
+        </form>
+
+      <!--<form method="get" action="troca">
+          {{ form }}
+          <button type="submit">Troca de aula</button>
+        </form> -->
+    </div>
+    </div>
+
+{% endblock %}

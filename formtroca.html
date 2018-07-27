@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block repo %}
+
+              <div class="modal-body" >
+                <div class="row" style="display:inline-block; width: 300px;">
+                  <div class="col-md-6">
+                    <div class="form-group" style="display:inline">
+                      <label>Pesquisa</label>
+                      <input name="motivo" type="text" required>*(Obrigatório)
+                      <div style="display: inline">
+                        <label>Data inicial:</label>
+                          <input type="date" name="bday" min="2000-01-02">
+                          <label>Data final:</label>
+                          <input type="date" name="bday" min="2000-01-02">
+                        </div>
+                      </div>
+                      <div>
+                        <label>Ordem</label>
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Crescente</option>
+                          <option>decrescente</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+{% endblock %}

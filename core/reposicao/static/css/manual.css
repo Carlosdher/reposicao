@@ -1,0 +1,17 @@
+.cabeca {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.corpo {
+  text-align: justify;
+    display: inline-block;
+}
+
+.botao {
+  box
+  text-align: center;
+    margin: 10px 0;
+    border-radius: 5px;
+}

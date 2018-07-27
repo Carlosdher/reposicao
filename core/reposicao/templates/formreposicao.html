@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+
+{% block repo %}
+  <div class="corpo">
+      <div class="modal-body" >
+        <div class="row" style="display:inline-block; width: 300px;">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Turma</label>
+              <select class="form-control select2" style="width: 100%;">
+                <option selected="selected">INTIN</option>
+                <option>INTED</option>
+                <option>INTEL</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="display:inline-block; width: 300px;">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Periodo</label>
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        <div class="row" style="display:inline-block; width: 300px;">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Motivo</label>
+                <input name="motivo" type="text" required>*(Obrigatório)
+              </div>
+            </div>
+          </div>
+      <div style="text-align: left">
+      <label>Justificativa</label>
+        <textarea class="form-control" rows="3"></textarea>
+        <input type="file" name="file">
+      </div>
+      <div class="form-group">
+      <label>Data da falta inicial:</label>
+        <input type="date" name="bday" min="2000-01-02">
+      <label>Data da falta final:</label>
+        <input type="date" name="bday" min="2000-01-02">
+      </div>
+      <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Componente Curricular </label>
+                  <input name="motivo" type="text" required>*(Obrigatório)
+              </div>
+            </div>
+      </div>
+      <div class="form-group">
+      <div>
+        <label>Data da aula:</label>
+          <input type="date" name="bday" min="2000-01-02">
+        <label>Hora:</label>
+          <input type="time" name="horare" value="00:00" >
+      </div>
+      <div>
+        <label>Data da reposição:</label>
+          <input type="date" name="bday" min="2000-01-02">
+        <label>Hora:</label>
+          <input type="time" name="horaau" value="00:00" >
+      </div>
+      </div>
+      <div style="text-align: left">
+      <label>Descrição da aula</label>
+        <textarea class="form-control" rows="3"></textarea>
+      </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+      </div>
+      </div>
+    </div>
+{% endblock %}

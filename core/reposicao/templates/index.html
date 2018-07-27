@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block repo %}
+    <div class="cabeca">
+      <h1>Testes</h1>
+    </div>
+
+    <div class="corpo">
+      <form method="get" action="http://127.0.0.1:8000/admin/">
+        {{ form }}
+        <button type="submit">Historico</button>
+
+        {{ form }}
+        <button type="submit">Reposição</button>
+
+        {{ form }}
+        <button type="submit">Transferência</button>
+
+        {{ form }}
+        <button type="submit">Adiantamento</button>
+      </form>
+    </div>
+
+{% endblock %}
