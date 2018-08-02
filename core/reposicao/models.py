@@ -1,46 +1,43 @@
 from django.db import models
-import uuid
+from app.core.models import CreateUpdateModel
 
-class Usuario(models.Model):
-    matricula = models.CharField('matricula',primary_key=True,  max_length=100)
-    tipo = models.CharField('tipo', max_length=100)
-    nome = models.CharField('nome', max_length=100)
-    senha = models.CharField('senha', max_length=100)
-    email = models.EmailField('email', max_length=254)
+class Planejamento(CreateUpdateModel):
+    components = models.CharField(primary_key=True,  max_length=100, verbose_name='Componente Curricular')
+    team = models.ForeignKey(Turma, on_delete=models.CASCADE)
+    date_class = models.DateField(verbose_name='Data da Aula')
+    date_restitution = models.DateField(verbose_name='Data da Reposição')
+    descripition  = models.TextField(verbose_name='Descrição')
 
     class Meta:
-        ordering = ['nome']
-        verbose_name_plural = 'Usuários'
+        verbose_name='Planejamento'
+        verbose_name_plural = 'Planejamentos'
 
-class Motivo(models.Model):
-    id_motivo = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    descricao = models.TextField()
+class Motivo(CreateUpdateModel):
+    name = models.CharField(max_length=100, verbose_name='Nome')
 
-class Periodo(models.Model):
-    id_periodo= models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    class Meta:
+        verbose_name='Motivo'
+        verbose_name_plural='Motivos'
+
+class Turma(CreateUpdateModel):
     nome = models.CharField('nome',max_length=100)
+    period = models.IntegerField(verbose_name='Período')
 
     class Meta:
-        verbose_name_plural = 'Períodos'
+        verbose_name = 'Turma'
+        verbose_name_plural = 'Turmas'
 
-class Turma(models.Model):
-    id_turma = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    nome = models.CharField('nome',max_length=100)
-    id_periodo = models.ForeignKey(Periodo, on_delete = models.CASCADE)
 
-class Solicitacao(models.Model):
-    matricula = models.ForeignKey(Usuario, on_delete = models.CASCADE)
-    id_solicitacao = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    justicativa = models.TextField()
-    data_falta_inicio = models.DateField()
-    data_falta_fim = models.DateField()
-    data_reposicao = models.DateField()
-    data_aula = models.DateField()
-    motivo = models.ForeignKey(Motivo, on_delete = models.CASCADE)
-    outro = models.CharField('outro',max_length=200, null=True, blank=True )
-    id_turma = models.ForeignKey(Turma, on_delete = models.CASCADE)
-    descricao = models.TextField()
-    Componente = models.CharField('Componente',max_length=100)
+
+class Solicitacao(CreateUpdateModel):
+    user = models.ForeignKey(UUIDUser, on_delete=models.CASCADE)
+    justification = models.TextField(verbose_name='Justificativa')
+    date_miss_start = models.DateField(verbose_name='Data da Falta Inicial')
+    date_miss_end = models.DateField(verbose_name='Data da Falta Final')
+    reason = models.ForeignKey(Motivo, on_delete = models.CASCADE)
+    othes = models.CharField(max_length=200, null=True, blank=True, verbose_name='Outros' )
+    team = models.ForeignKey(Turma, on_delete = models.CASCADE)
 
     class Meta:
+        verbose_name = 'Solicitação'
         verbose_name_plural = 'Solicitações'
